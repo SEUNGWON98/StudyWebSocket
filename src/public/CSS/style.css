@@ -1,0 +1,140 @@
+body {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+#display {
+  width: 100%;
+}
+
+#display > header > h1 {
+  margin: 30px 0 0 0;
+  font-family: "Pacifico", cursive;
+  font-size: 2vw;
+}
+
+main {
+  max-width: 100%;
+}
+
+#welcome {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+#welcome > form {
+  width: 500px;
+  height: 450px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+#welcome > form > input {
+  height: 50px;
+}
+
+#call {
+  display: flex;
+  justify-content: space-evenly;
+  position: relative;
+  left: -18px;
+  width: 101vw;
+  background-color: black;
+  padding: 20px 0 20px 0;
+}
+
+#myStream {
+  width: 75vw;
+  /* border: solid 1px black; */
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#chat {
+  width: 18vw;
+  background-color: white;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#chat_list {
+  width: 100%;
+}
+
+#chat > div > ul {
+  overflow-y: auto;
+  height: 60vh;
+  padding: 0 10px 0 10px;
+}
+
+#chat > div > ul > div {
+  margin-top: 2px;
+}
+
+#videoes {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 30px 10px 0 10px;
+}
+
+#videoes > p {
+  color: white;
+  display: flex;
+  justify-content: end;
+  align-items: end;
+}
+
+#setting {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+  align-items: end;
+}
+
+#message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  border: 0;
+  box-shadow: none;
+  height: 5vh;
+  background-color: blue;
+  margin-bottom: 10px;
+
+  width: 15vw;
+  height: 40px;
+  border-radius: 25px;
+  background-color: rgb(230, 230, 230);
+}
+
+#message > input {
+  padding: 0;
+  margin: 0;
+  width: 80%;
+  height: 80%;
+  border-radius: 25px;
+  background-color: rgb(230, 230, 230);
+}
+
+#message > button {
+  width: 2vw;
+  height: 40px;
+  padding: 0;
+  background-color: rgb(230, 230, 230);
+  border: none;
+  color: black;
+}
+
+.mymsg {
+  display: flex;
+  justify-content: end;
+}

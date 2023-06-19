@@ -105,6 +105,13 @@ const chatForm = chat.querySelector("form");
 
 const call = document.getElementById("call");
 
+const chat_btn = document.getElementById("chat_btn");
+const receiveBox = document.querySelector("#chat ul");
+
+chat.removeAttribute("id");
+chat.hidden = true;
+
+call.removeAttribute("id");
 call.hidden = true;
 
 let myStream;
@@ -198,7 +205,11 @@ cameraBtn.addEventListener("click", handleCameraClick);
 camerasSelect.addEventListener("input", handleCameraChange);
 
 async function initCall() {
+  welcome.removeAttribute("id");
+  welcome.classList = true;
   welcome.hidden = true;
+
+  call.setAttribute("id", "call");
   call.hidden = false;
   await getMedia();
   makeConnection();
@@ -206,9 +217,24 @@ async function initCall() {
   // socket.emit("join_room", roomName);
 }
 
+function handleChat_BtnClick() {
+  if (chat.hidden === true) {
+    chat.classList = true;
+
+    chat.setAttribute("id", "chat");
+    chat.hidden = false;
+  } else if (chat.hidden === false) {
+    chat.removeAttribute("id");
+    chat.hidden = true;
+  }
+}
+
+chat_btn.addEventListener("click", handleChat_BtnClick);
+
 async function handleWelcomeSubmit(event) {
   event.preventDefault();
   const input = welcomeForm.querySelector("input");
+
   await initCall();
   socket.emit("join_room", input.value);
   roomName = input.value;
@@ -220,21 +246,36 @@ welcomeForm.addEventListener("submit", handleWelcomeSubmit);
 function handleReceiveMessage(message) {
   // event.preventDefault();
 
-  const li = document.createElement("li");
+  const div = document.createElement("div");
   // const txtNode = document.createTextNode(message.data);
   const msg = message.data;
 
-  li.innerText = msg; // 수정
-  const receiveBox = document.querySelector("#chat ul");
+  div.innerText = msg; // 수정
 
-  receiveBox.appendChild(li);
+  receiveBox.appendChild(div);
+  console.log("check##############################33");
+}
+
+function handleReceiveMessage2(message) {
+  // event.preventDefault();
+
+  const div = document.createElement("div");
+  // const txtNode = document.createTextNode(message.data);
+  const msg = message.data;
+
+  div.classList = true;
+  div.setAttribute("class", "mymsg");
+
+  div.innerText = msg; // 수정
+
+  receiveBox.appendChild(div);
   console.log("check##############################33");
 }
 
 chatForm.addEventListener("submit", (event) => {
   event.preventDefault();
   const message = chatInput.value;
-  handleReceiveMessage({ data: message });
+  handleReceiveMessage2({ data: message });
 
   sendMessage(message);
 
